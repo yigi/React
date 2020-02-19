@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, SafeAreaView, TextInput } from 'react-native';
 
 export default class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <View style = { styles.leftContainer }>
         <View style = { styles.firstrow}>
           <View style={  [styles.box, {backgroundColor: '#B4C6A4'} ] }></View>
           <View style={  [styles.box, {backgroundColor: '#B4C6C4'} ] }></View>
           <View style={  [styles.box, {backgroundColor: '#B4C6E4'} ] }></View>
+        </View>
+        <View style = { styles.middlerow}>
+          <UselessTextInput/>
         </View>
         <View style = { styles.secondrow}>
           <View style={  [styles.box, {backgroundColor: '#86AED1'} ] }></View>
@@ -20,15 +23,26 @@ export default class App extends Component {
         <View style = { styles.rightContainer }>
           <View style={  [styles.box, {backgroundColor: 'black'} ] }></View>
         </View>
-      </View>
+      </SafeAreaView>
     );
   } 
 }
 
+function UselessTextInput() {
+  const [value, onChangeText] = React.useState('Useless Placeholder');
+
+  return (
+    <TextInput
+      style={ [styles.textBox, { height: 40, borderColor: 'pink', borderWidth: 1 } ]}
+      onChangeText={text => onChangeText(text)}
+    />
+  );
+}
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 20,
     backgroundColor: '#DFE3E6',
     flexDirection: 'row',
     alignContent: 'flex-end',
@@ -40,12 +54,17 @@ const styles = StyleSheet.create({
     width:50
   },
   firstrow: {
-    flex: 0.5,
+    flex: 0.4,
     flexDirection: 'column',
     justifyContent: 'flex-start', 
   },
+  middlerow: {
+    flex: 0.3,
+    flexDirection: 'row',
+    alignItems: 'flex-start'
+  },
   secondrow: {
-    flex: 0.5,
+    flex: 0.4,
     flexDirection: 'row',
     alignItems: 'flex-end'
   },
@@ -54,5 +73,10 @@ const styles = StyleSheet.create({
   },
   rightContainer: {
     flex: 0.1,
+  },
+  textBox: {
+    flex: 1,
+    alignContent: 'center',
+    marginTop: 30
   },
 });
