@@ -13,6 +13,7 @@ export default class App extends Component {
         </View>
         <View style = { styles.middlerow}>
           <UselessTextInput/>
+          <Button title = 'Add'/>
         </View>
         <View style = { styles.secondrow}>
           <View style={  [styles.box, {backgroundColor: '#86AED1'} ] }></View>
