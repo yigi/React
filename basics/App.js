@@ -6,7 +6,7 @@ import {
   TextInput,
   Text,
   TouchableOpacity,
-  TouchableHighlight
+  ScrollView
 } from "react-native";
 
 export default class App extends Component {
@@ -18,43 +18,57 @@ export default class App extends Component {
             <Text style={styles.editText}> Edit </Text>
           </TouchableOpacity>
         </View>
-        <View style={styles.searchContainer}>
-          <View style={styles.searchBoxMockBackground} />
-          <TextInput
-            placeholder="Search"
-            placeholderTextColor="#808080"
-            style={styles.searchBox}
-          />
-        </View>
-        <View style={styles.groupContainer}>
-          <TouchableHighlight underlayColor="blue">
-            <View style={styles.groupBox} />
-          </TouchableHighlight>
-          <View style={styles.groupBox} />
-          <View style={styles.groupBox} />
-          <View style={styles.groupBox} />
-        </View>
-        <View style={styles.listContainer}>
-          <Text style={styles.myListText}> My Lists </Text>
-          <TouchableHighlight underlayColor="blue">
-            <View style={styles.listItem} />
-          </TouchableHighlight>
-          <TouchableHighlight underlayColor="blue">
-            <View style={styles.listItem} />
-          </TouchableHighlight>
-          <TouchableHighlight underlayColor="blue">
-            <View style={styles.listItem} />
-          </TouchableHighlight>
-          <TouchableHighlight underlayColor="blue">
-            <View style={styles.listItem} />
-          </TouchableHighlight>
-          <TouchableHighlight underlayColor="blue">
-            <View style={styles.listItem} />
-          </TouchableHighlight>
-          <TouchableHighlight underlayColor="blue">
-            <View style={styles.listItem} />
-          </TouchableHighlight>
-        </View>
+        <ScrollView style={styles.scrollableContainer}>
+          <View style={styles.searchContainer}>
+            <View style={styles.searchBoxMockBackground} />
+            <TextInput
+              placeholder="Search"
+              placeholderTextColor="#808080"
+              style={styles.searchBox}
+            />
+          </View>
+          <View style={styles.groupContainer}>
+            <TouchableOpacity underlayColor="blue">
+              <View style={styles.groupBox} />
+            </TouchableOpacity>
+            <TouchableOpacity underlayColor="blue">
+              <View style={styles.groupBox} />
+            </TouchableOpacity>
+            <TouchableOpacity underlayColor="blue">
+              <View style={styles.groupBox} />
+            </TouchableOpacity>
+            <TouchableOpacity underlayColor="blue">
+              <View style={styles.groupBox} />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.listContainer}>
+            <Text style={styles.myListText}> My Lists </Text>
+            <TouchableOpacity underlayColor="blue">
+              <View style={styles.listItem} />
+            </TouchableOpacity>
+            <TouchableOpacity underlayColor="blue">
+              <View style={styles.listItem} />
+            </TouchableOpacity>
+            <TouchableOpacity underlayColor="blue">
+              <View style={styles.listItem} />
+            </TouchableOpacity>
+            <TouchableOpacity underlayColor="blue">
+              <View style={styles.listItem} />
+            </TouchableOpacity>
+            <TouchableOpacity underlayColor="blue">
+              <View style={styles.listItem} />
+            </TouchableOpacity>
+            <TouchableOpacity underlayColor="blue">
+              <View style={styles.listItem} />
+            </TouchableOpacity>
+            <TouchableOpacity underlayColor="blue">
+              <View style={styles.listItem} />
+            </TouchableOpacity>
+            <TouchableOpacity underlayColor="blue">
+              <View style={styles.listItem} />
+            </TouchableOpacity>
+          </View>
+        </ScrollView>
         <View style={styles.bottomContainer}>
           <TouchableOpacity style={styles.editButton}>
             <Text style={styles.editText}> Add List </Text>
@@ -71,6 +85,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#F3F2F7",
     flexDirection: "column",
     alignContent: "flex-end"
+  },
+  scrollableContainer: {
+    flex: 0.85,
+    flexDirection: "column"
   },
   topContainer: {
     flex: 0.075,
@@ -154,6 +172,9 @@ const styles = StyleSheet.create({
     marginBottom: 7,
     marginLeft: 20,
     fontWeight: "bold"
+  },
+  groupBoxContent: {
+    flex: 1
   }
 });
 
@@ -186,57 +207,4 @@ export default class App extends Component {
     );
   } 
 }
-
-function UselessTextInput() {
-  const [value, onChangeText] = React.useState('Useless Placeholder');
-
-  return (
-    <TextInput
-      style={ [styles.textBox, { height: 40, borderColor: 'pink', borderWidth: 1 } ]}
-      onChangeText={text => onChangeText(text)}
-    />
-  );
-}
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#DFE3E6',
-    flexDirection: 'row',
-    alignContent: 'flex-end',
-  },
-  box: {
-    flex: 1,
-    margin: 2,
-    height: 50,
-    width:50
-  },
-  firstrow: {
-    flex: 0.4,
-    flexDirection: 'column',
-    justifyContent: 'flex-start', 
-  },
-  middlerow: {
-    flex: 0.3,
-    flexDirection: 'row',
-    alignItems: 'flex-start'
-  },
-  secondrow: {
-    flex: 0.4,
-    flexDirection: 'row',
-    alignItems: 'flex-end'
-  },
-  leftContainer: {
-    flex: 0.9, 
-  },
-  rightContainer: {
-    flex: 0.1,
-  },
-  textBox: {
-    flex: 1,
-    alignContent: 'center',
-    marginTop: 30
-  },
-});
 */
